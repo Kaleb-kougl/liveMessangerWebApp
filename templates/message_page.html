@@ -1,0 +1,18 @@
+{% extends "message_template.html" %}
+
+{% block title %}MessagePage1{% endblock %}
+
+{% block body %}
+<h1>Hello world!</h1>
+<p>This is where the messages are going to appear as a bulleted list?</p>
+<ul>
+  {% for message in messages %}
+  <li>{{ message.getName() }}, {{ message.getText() }}</li>
+  {% endfor %}
+</ul>
+<form action="{{ url_for('index') }} " method="POST">
+  <input type="text" name="text" placeholder="Message goes here" required>
+  <input type="text" name="name" placeholder="Name goes here" required>
+  <button>submit</button>
+</form>
+{% endblock %}
